@@ -2,8 +2,8 @@ from flask import Flask, request, render_template
 import pickle
 
 # Load the model
-with open('/home/ak/PROJECT/APPLICATION/rfcmodel', 'rb') as file:
-    model = pickle.load(file)
+# with open('/home/ak/PROJECT/APPLICATION/rfcmodel', 'rb') as file:
+#     model = pickle.load(file)
 
 # Create a Flask application
 app = Flask(__name__)
@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def root():
     # Read the file contents and send them to the client
-    return render_template('index.html')
+    return render_template('index')
 
 @app.route("/classify", methods=["POST"])
 def classify():
