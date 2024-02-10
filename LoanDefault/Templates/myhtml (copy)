@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #1b74cc;
+            color: #495057;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 50px auto;
+            max-width: 600px;
+        }
+
+        h1, h5 {
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .btn-predict {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: #ffffff;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-predict:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Data-Driven Loan Approval Forecast</h1>
+        <h5>Predict your loan approval with ease</h5>
+
+        <form method="POST" action="/classify">
+
+            <!-- Age, Income, Loan Amount -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-label">Age:</label>
+                        <input class="form-control" name="Age" type="number" min="0">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-label">Income:</label>
+                        <input class="form-control" name="Income" type="number" min="0">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-label">Loan Amount:</label>
+                        <input class="form-control" name="LoanAmount" type="number" min="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Credit Score, Months Employed, Interest Rate -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-label">Credit Score:</label>
+                        <input class="form-control" name="CreditScore" type="number" min="0">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-label">Months Employed:</label>
+                        <input class="form-control" name="MonthsEmployed" type="number" min="0">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-label">Interest Rate:</label>
+                        <input class="form-control" name="InterestRate" type="number" min="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loan Term, Employment Type, Has Mortgage -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-label">Loan Term (years):</label>
+                        <input class="form-control" name="LoanTerm" type="number" min="0">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-label">Employment Type:</label>
+                        <select class="form-control" name="EmploymentType">
+                            <option value="Unemployed">Unemployed</option>
+                            <option value="Full-Time">Full-Time</option>
+                            <option value="Part-Time">Part-Time</option>
+                            <option value="Self-employed">Self-employed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="form-label">Has Mortgage:</label>
+                        <select name="HasMortgage" class="form-control">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Has Dependents, Has Co-Signer -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-label">Has Dependents:</label>
+                        <select name="HasDependents" class="form-control">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-label">Has Co-Signer:</label>
+                        <select name="HasCoSigner" class="form-control">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Predict Button -->
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-predict">Predict</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
+
